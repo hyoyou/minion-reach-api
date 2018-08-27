@@ -36,6 +36,12 @@ gem 'jbuilder', '~> 2.5'
 # Use Rack CORS to handle Cross Origin Resource Sharing
 gem 'rack-cors'
 
+# Use Faraday to handle HTTP requests
+gem 'faraday', '~> 0.9.2'
+
+# Use Pry Rails for debugging
+gem 'pry-rails'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
