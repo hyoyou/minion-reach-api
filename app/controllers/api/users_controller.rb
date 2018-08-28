@@ -12,7 +12,13 @@ class Api::UsersController < ApplicationController
     end
 
     def leaderboard
-        # Sort users by score then grab first 10
+        @users = User.order("score DESC").limit(10)
+
+        if @users
+            render json: { users: @users }
+        else
+            render json: { errors: { message: "Unable to obtain leaderboard data" } }, status: 401
+        end
     end
 
     def show
