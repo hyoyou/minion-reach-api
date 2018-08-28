@@ -5,19 +5,51 @@ class Api::WordsController < ApplicationController
         conn = Faraday.new
         response = conn.get 'http://app.linkedin-reach.io/words'
         @words = response.body.split("\n")
+
         render json: @words
     end
 
-    def get
-        difficulty = params[:difficulty]
-
+    def easy
         conn = Faraday.new
-        # response = conn.get `http://app.linkedin-reach.io/words?difficulty=#{params[:difficulty]}&minLength=4`
+        response = conn.get 'http://app.linkedin-reach.io/words?difficulty=1&minLength=4'
+        @words = response.body.split("\n")
+
+        render json: @words
+    end
+
+    def normal
+        conn = Faraday.new
         response = conn.get 'http://app.linkedin-reach.io/words?difficulty=3&minLength=4'
         @words = response.body.split("\n")
-        # binding.pry
+
         render json: @words
     end
+
+    def hard
+        conn = Faraday.new
+        response = conn.get 'http://app.linkedin-reach.io/words?difficulty=5&minLength=4'
+        @words = response.body.split("\n")
+
+        render json: @words
+    end
+
+    def bananas
+        conn = Faraday.new
+        response = conn.get 'http://app.linkedin-reach.io/words?difficulty=10&minLength=4'
+        @words = response.body.split("\n")
+
+        render json: @words
+    end
+
+    # def difficulty
+    #     difficulty = params[:difficulty]
+        
+    #     conn = Faraday.new
+    #     response = conn.get `http://app.linkedin-reach.io/words?difficulty=#{difficulty}&minLength=4`
+    #     @words = response.body.split("\n")
+    #     # binding.pry
+    #     render json: @words
+    # end
 
     private
     def word_params
