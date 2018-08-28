@@ -1,11 +1,17 @@
 Rails.application.routes.draw do
   namespace :api do
-    resources :words, only: [:index]
+    get '/words', to: 'words#index'
+    get '/words/easy', to: 'words#easy'
+    get '/words/normal', to: 'words#normal'
+    get '/words/hard', to: 'words#hard'
+    get '/words/bananas', to: 'words#bananas'
+    # get '/words/difficulty', to: 'words#difficulty'
+
+    post '/signup', to: 'users#signup'
+    get '/users/leaderboard', to: 'users#leaderboard'
+    get '/users/:id', to: 'users#show'
+    post '/login', to: 'sessions#login'
+    post '/find', to: 'sessions#find'
   end
 
-  get 'api/words/easy' => 'api/words#easy'
-  get 'api/words/normal' => 'api/words#normal'
-  get 'api/words/hard' => 'api/words#hard'
-  get 'api/words/bananas' => 'api/words#bananas'
-  # get 'api/words/difficulty' => 'api/words#difficulty'
 end

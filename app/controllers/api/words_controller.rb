@@ -43,9 +43,10 @@ class Api::WordsController < ApplicationController
 
     # def difficulty
     #     difficulty = params[:difficulty]
+    #     uri = `http://app.linkedin-reach.io/words?difficulty=#{difficulty}`
         
     #     conn = Faraday.new
-    #     response = conn.get `http://app.linkedin-reach.io/words?difficulty=#{difficulty}&minLength=4`
+    #     response = conn.get uri
     #     @words = response.body.split("\n")
     #     # binding.pry
     #     render json: @words
