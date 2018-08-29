@@ -16,7 +16,6 @@ class Api::SessionsController < ApplicationController
     def find
         current_user = Auth.decode_token(params[:token])
         if current_user
-            # binding.pry
             render json: { user: current_user }
         else
             render json: { errors: { message: "Unable to find user" } }, status: 401
