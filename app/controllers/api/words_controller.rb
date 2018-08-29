@@ -6,7 +6,11 @@ class Api::WordsController < ApplicationController
         response = conn.get 'http://app.linkedin-reach.io/words'
         @words = response.body.split("\n")
 
-        render json: @words
+        if @words
+            render json: @words
+        else
+            render json: { errors: { message: "Unable to retrieve dictionary data" } }, status: 401
+        end
     end
 
     def easy
@@ -14,7 +18,11 @@ class Api::WordsController < ApplicationController
         response = conn.get 'http://app.linkedin-reach.io/words?difficulty=1&minLength=4'
         @words = response.body.split("\n")
 
-        render json: @words
+        if @words
+            render json: @words
+        else
+            render json: { errors: { message: "Unable to retrieve dictionary data" } }, status: 401
+        end
     end
 
     def normal
@@ -22,7 +30,11 @@ class Api::WordsController < ApplicationController
         response = conn.get 'http://app.linkedin-reach.io/words?difficulty=3&minLength=4'
         @words = response.body.split("\n")
 
-        render json: @words
+        if @words
+            render json: @words
+        else
+            render json: { errors: { message: "Unable to retrieve dictionary data" } }, status: 401
+        end
     end
 
     def hard
@@ -30,7 +42,11 @@ class Api::WordsController < ApplicationController
         response = conn.get 'http://app.linkedin-reach.io/words?difficulty=5&minLength=4'
         @words = response.body.split("\n")
 
-        render json: @words
+        if @words
+            render json: @words
+        else
+            render json: { errors: { message: "Unable to retrieve dictionary data" } }, status: 401
+        end
     end
 
     def bananas
@@ -38,7 +54,11 @@ class Api::WordsController < ApplicationController
         response = conn.get 'http://app.linkedin-reach.io/words?difficulty=10&minLength=4'
         @words = response.body.split("\n")
 
-        render json: @words
+        if @words
+            render json: @words
+        else
+            render json: { errors: { message: "Unable to retrieve dictionary data" } }, status: 401
+        end
     end
 
     # def difficulty
