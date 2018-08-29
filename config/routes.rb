@@ -7,9 +7,10 @@ Rails.application.routes.draw do
     get '/words/bananas', to: 'words#bananas'
     # get '/words/difficulty', to: 'words#difficulty'
 
-    post '/signup', to: 'users#signup'
     get '/users/leaderboard', to: 'users#leaderboard'
-    get '/users/:id', to: 'users#show'
+    resources :users, only: [:edit, :update, :show]
+    post '/signup', to: 'users#signup'
+
     post '/login', to: 'sessions#login'
     post '/find', to: 'sessions#find'
   end
