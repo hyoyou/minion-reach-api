@@ -9,7 +9,7 @@ class Api::WordsController < ApplicationController
         if @words
             render json: @words
         else
-            render json: { errors: { message: "Unable to retrieve dictionary data" } }, status: 401
+            render json: { errors: { message: "Unable to retrieve dictionary data" } }, status: 500
         end
     end
 
@@ -21,7 +21,7 @@ class Api::WordsController < ApplicationController
         if @words
             render json: @words
         else
-            render json: { errors: { message: "Unable to retrieve dictionary data" } }, status: 401
+            render json: { errors: { message: "Unable to retrieve dictionary data" } }, status: 500
         end
     end
 
@@ -33,7 +33,7 @@ class Api::WordsController < ApplicationController
         if @words
             render json: @words
         else
-            render json: { errors: { message: "Unable to retrieve dictionary data" } }, status: 401
+            render json: { errors: { message: "Unable to retrieve dictionary data" } }, status: 500
         end
     end
 
@@ -45,7 +45,7 @@ class Api::WordsController < ApplicationController
         if @words
             render json: @words
         else
-            render json: { errors: { message: "Unable to retrieve dictionary data" } }, status: 401
+            render json: { errors: { message: "Unable to retrieve dictionary data" } }, status: 500
         end
     end
 
@@ -57,7 +57,7 @@ class Api::WordsController < ApplicationController
         if @words
             render json: @words
         else
-            render json: { errors: { message: "Unable to retrieve dictionary data" } }, status: 401
+            render json: { errors: { message: "Unable to retrieve dictionary data" } }, status: 500
         end
     end
 
