@@ -7,7 +7,7 @@ class Api::UsersController < ApplicationController
         if user.save
             render json: { token: Auth.create_token({ id: user.id, username: user.username, score: user.score }) }
         else
-            render json: { errors: user.errors.full_messages }, status: 401 
+            render json: { errors: { message: user.errors.full_messages } }, status: 401 
         end
     end
 
@@ -15,7 +15,7 @@ class Api::UsersController < ApplicationController
         if @user.update(user_params)
             render json: @user
         else
-            render json: { errors: user.errors.full_messages }, status: 401 
+            render json: { errors: { message: user.errors.full_messages } }, status: 401 
         end
     end
 
