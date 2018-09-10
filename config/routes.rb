@@ -5,7 +5,6 @@ Rails.application.routes.draw do
     get '/words/normal', to: 'words#normal'
     get '/words/hard', to: 'words#hard'
     get '/words/bananas', to: 'words#bananas'
-    # get '/words/difficulty', to: 'words#difficulty'
 
     get '/users/leaderboard', to: 'users#leaderboard'
     resources :users, only: [:edit, :update, :show]
