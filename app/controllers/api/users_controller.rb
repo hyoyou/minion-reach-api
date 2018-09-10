@@ -15,7 +15,7 @@ class Api::UsersController < ApplicationController
         if @user.update(user_params)
             render json: @user
         else
-            render json: { errors: { message: user.errors.full_messages } }, status: 401 
+            render json: { errors: { message: @user.errors.full_messages } }, status: 401 
         end
     end
 
@@ -39,6 +39,6 @@ class Api::UsersController < ApplicationController
     end
 
     def user_params
-        params.require(:user).permit(:username, :password, :score)
+        params.require(:user).permit(:id, :username, :password, :score)
     end
 end
