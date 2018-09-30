@@ -1,48 +1,31 @@
-require 'faraday'
-
 class Api::WordsController < ApplicationController
     def index
-        conn = Faraday.new
-        response = conn.get 'http://app.linkedin-reach.io/words'
-        @words = response.body.split("\n")
-
+        @words = Words.all
         render json: @words
     end
 
     def easy
-        conn = Faraday.new
-        response = conn.get 'http://app.linkedin-reach.io/words?difficulty=1&minLength=4'
-        words = response.body.split("\n")
+        words = Word.all.where("difficulty" => 1)
         @word = words.sample
-
-        render json: @word
+        render json: @word.word
     end
 
     def normal
-        conn = Faraday.new
-        response = conn.get 'http://app.linkedin-reach.io/words?difficulty=3&minLength=4'
-        words = response.body.split("\n")
+        words = Word.all.where("difficulty" => 2)
         @word = words.sample
-
-        render json: @word
+        render json: @word.word
     end
 
     def hard
-        conn = Faraday.new
-        response = conn.get 'http://app.linkedin-reach.io/words?difficulty=5&minLength=4'
-        words = response.body.split("\n")
+        words = Word.all.where("difficulty" => 3)
         @word = words.sample
-
-        render json: @word
+        render json: @word.word
     end
 
     def bananas
-        conn = Faraday.new
-        response = conn.get 'http://app.linkedin-reach.io/words?difficulty=10&minLength=4'
-        words = response.body.split("\n")
+        words = Word.all.where("difficulty" => 9)
         @word = words.sample
-
-        render json: @word
+        render json: @word.word
     end
 
     private
