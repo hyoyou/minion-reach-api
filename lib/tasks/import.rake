@@ -6,6 +6,6 @@ task :import_words => :environment do
         word = row[0]
         difficulty = row[1]
         word = Word.create(word: word, difficulty: difficulty)
-        # puts "#{name} - #{word.errors.full_messages.join(", ")}" if word.errors.any?
+        # puts "#{word.errors.full_messages.join(", ")}" if word.errors.any?
     end
 end
