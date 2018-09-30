@@ -1,6 +1,6 @@
 require 'csv'
 
-filename = File.join Rails.root, "public/words.csv"
+filename = File.join Rails.root, "public/new_words.csv"
 task :import_words => :environment do 
     CSV.read(filename, headers: true).each do |row|
         word = row[0]
